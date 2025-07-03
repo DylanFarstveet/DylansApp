@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2025 Dylan R. Farstveet
+  ~ All rights reserved
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DylansApp"
+        tools:targetApi="31">
+        <activity
+            android:name="com.farstveet.dylansapp.ElementsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_elements"
+            android:theme="@style/Theme.DylansApp" />
+        <activity
+            android:name="com.farstveet.dylansapp.PoniesActivity"
+            android:exported="false"
+            android:label="@string/title_activity_ponies"
+            android:theme="@style/Theme.DylansApp" />
+        <activity
+            android:name="com.farstveet.dylansapp.AboutActivity"
+            android:exported="false"
+            android:label="@string/title_activity_about_dylan"
+            android:theme="@style/Theme.DylansApp" />
+        <activity
+            android:name="com.farstveet.dylansapp.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.DylansApp">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

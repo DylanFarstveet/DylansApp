@@ -1,0 +1,11 @@
+<!--
+  ~ Copyright (c) 2025 Dylan R. Farstveet
+  ~ All rights reserved
+  -->
+
+<resources>
+    <string name="app_name">Dylan\'s App</string>
+    <string name="title_activity_about_dylan">About Dylan</string>
+    <string name="title_activity_ponies">Ponies</string>
+    <string name="title_activity_elements">Elements of Harmony</string>
+</resources>
