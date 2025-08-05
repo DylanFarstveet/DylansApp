@@ -22,6 +22,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import com.farstveet.dylansapp.ui.theme.DylansAppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -33,7 +35,7 @@ class PoniesActivity : ComponentActivity() {
                 Scaffold(
                     topBar = {
                         TopAppBar(
-                            title = { Text("Ponies") },
+                            title = { Text("Ponies", modifier = Modifier.semantics { heading() }) },
                             colors = TopAppBarDefaults.topAppBarColors(
                                 containerColor = MaterialTheme.colorScheme.primary,
                                 titleContentColor = MaterialTheme.colorScheme.onPrimary
@@ -72,7 +74,7 @@ fun PoniesScreen(modifier: Modifier = Modifier) {
 fun PonyCard(name: String, link: String) {
     val context = LocalContext.current
     Column {
-        Text(text = name, style = MaterialTheme.typography.titleLarge)
+        Text(text = name, style = MaterialTheme.typography.titleLarge, modifier = Modifier.semantics { heading() })
         Text(
             text = "Learn more here",
             color = Color(0xFF0000EE), // link-style color

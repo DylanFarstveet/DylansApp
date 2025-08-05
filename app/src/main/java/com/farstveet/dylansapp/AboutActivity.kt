@@ -21,6 +21,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import com.farstveet.dylansapp.ui.theme.DylansAppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -32,7 +34,7 @@ class AboutActivity : ComponentActivity() {
                 Scaffold(
                     topBar = {
                         TopAppBar(
-                            title = { Text("About Dylan") },
+                            title = { Text("About Dylan", modifier = Modifier.semantics { heading() }) },
                             colors = TopAppBarDefaults.topAppBarColors(
                                 containerColor = MaterialTheme.colorScheme.primary,
                                 titleContentColor = MaterialTheme.colorScheme.onPrimary
@@ -58,19 +60,19 @@ fun AboutMeScreen(modifier: Modifier = Modifier) {
             .verticalScroll(scrollState),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        Text("About Dylan", style = MaterialTheme.typography.headlineMedium)
+        Text("About Dylan", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.semantics { heading() })
         Text("Hey there! I'm Dylan, a 24-year-old who loves My Little Pony, music, and video games. I work at Target and enjoy creating music in my free time.")
 
-        Text("Socials", style = MaterialTheme.typography.titleMedium)
+        Text("Socials", style = MaterialTheme.typography.titleMedium, modifier = Modifier.semantics { heading() })
         LabeledLink("Twitter:", "@DFarstveet", "https://twitter.com/DFarstveet")
         LabeledLink("Instagram:", "Dylan_Farstveet_", "https://www.instagram.com/Dylan_Farstveet_")
         Text("Discord: dyllpyckle")
         LabeledLink("Email:", "dylanfarstveet512@gmail.com", "mailto:dylanfarstveet512@gmail.com")
 
-        Text("Work", style = MaterialTheme.typography.titleMedium)
+        Text("Work", style = MaterialTheme.typography.titleMedium, modifier = Modifier.semantics { heading() })
         Text("I currently work at Target and previously worked at Walmart. I have experience in retail and customer service.")
 
-        Text("Contact", style = MaterialTheme.typography.titleMedium)
+        Text("Contact", style = MaterialTheme.typography.titleMedium, modifier = Modifier.semantics { heading() })
         Text("Feel free to reach out to me through my Discord or email.")
 
         Spacer(modifier = Modifier.height(32.dp))
