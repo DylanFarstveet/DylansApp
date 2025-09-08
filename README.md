@@ -3,5 +3,5 @@
 This application is for personal experimentation purposes.
 The purpose of this repository is to share the application outside of Google Play.
 
-### CONTACT
+### Contact
 E-mail: dylanfarstveet512@gmail.com
