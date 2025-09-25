@@ -11,12 +11,12 @@ plugins {
 
 android {
     namespace = "com.farstveet.dylansapp"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.farstveet.dylansapp"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 2
         versionName = "1.0.1"
 
@@ -61,5 +61,5 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation("androidx.browser:browser:1.7.0")
+    implementation("androidx.browser:browser:1.9.0")
 }
