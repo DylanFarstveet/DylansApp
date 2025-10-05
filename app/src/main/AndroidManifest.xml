@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2025 Dylan R. Farstveet
-  ~ All rights reserved
-  -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -18,22 +13,27 @@
         android:theme="@style/Theme.DylansApp"
         tools:targetApi="31">
         <activity
-            android:name="com.farstveet.dylansapp.ElementsActivity"
+            android:name=".AboutActivity"
+            android:exported="false"
+            android:label="@string/title_activity_about"
+            android:theme="@style/Theme.DylansApp" />
+        <activity
+            android:name=".ElementsActivity"
             android:exported="false"
             android:label="@string/title_activity_elements"
             android:theme="@style/Theme.DylansApp" />
         <activity
-            android:name="com.farstveet.dylansapp.PoniesActivity"
+            android:name=".PoniesActivity"
             android:exported="false"
             android:label="@string/title_activity_ponies"
             android:theme="@style/Theme.DylansApp" />
         <activity
-            android:name="com.farstveet.dylansapp.AboutActivity"
+            android:name=".DylanActivity"
             android:exported="false"
             android:label="@string/title_activity_about_dylan"
             android:theme="@style/Theme.DylansApp" />
         <activity
-            android:name="com.farstveet.dylansapp.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.DylansApp">

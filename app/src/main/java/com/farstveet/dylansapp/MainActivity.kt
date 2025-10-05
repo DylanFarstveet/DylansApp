@@ -58,7 +58,7 @@ fun MainMenuScreen(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         BigButton("About Dylan") {
-            val intent = Intent(context, AboutActivity::class.java)
+            val intent = Intent(context, DylanActivity::class.java)
             context.startActivity(intent)
         }
 
@@ -69,6 +69,10 @@ fun MainMenuScreen(modifier: Modifier = Modifier) {
 
         BigButton("Elements of Harmony") {
             val intent = Intent(context, ElementsActivity::class.java)
+            context.startActivity(intent)
+        }
+        BigButton("About") {
+            val intent = Intent(context, AboutActivity::class.java)
             context.startActivity(intent)
         }
     }
