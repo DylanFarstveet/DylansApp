@@ -77,7 +77,7 @@ fun PonyCard(name: String, link: String) {
         Text(text = name, style = MaterialTheme.typography.titleLarge, modifier = Modifier.semantics { heading() })
         Text(
             text = "Learn more here",
-            color = Color(0xFF0000EE), // link-style color
+            color = Color(0xFF0000EE),
             textDecoration = TextDecoration.Underline,
             modifier = Modifier.clickable {
                 openInCustomTab(context, link)
