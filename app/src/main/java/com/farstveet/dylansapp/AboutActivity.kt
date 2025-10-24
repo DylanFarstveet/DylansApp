@@ -93,7 +93,7 @@ fun AboutAppScreen(modifier: Modifier = Modifier) {
                 textAlign = TextAlign.Center
             )
             Text(
-                text = "Copyright © $currentYear Dylan R. Farstveet\nAll rights reserved\n\nMY LITTLE PONY and all related characters are trademarks of Hasbro, Inc. This app is a non-commercial project created under the principles of fair use and is not affiliated with or endorsed by Hasbro.",
+                text = "Copyright © $currentYear Dylan R. Farstveet\nAll rights reserved\n\nMy Little Pony and all related characters are trademarks of Hasbro, Inc. This app is a non-commercial project created under the principles of fair use and is not affiliated with or endorsed by Hasbro.",
                 fontSize = 16.sp,
                 textAlign = TextAlign.Center
             )
