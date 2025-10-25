@@ -19,7 +19,9 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
@@ -59,17 +61,19 @@ fun AboutAppScreen(modifier: Modifier = Modifier) {
         context.packageManager.getPackageInfo(context.packageName, 0).versionName
     }
     val currentYear = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR)
+    val buttonHeight = remember { mutableStateOf(0f) }
+    val density = LocalDensity.current
 
     Box(
         modifier = modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState())
             .padding(24.dp)
     ) {
         Column(
             modifier = Modifier
-                .align(Alignment.TopCenter)
-                .padding(top = 32.dp),
+                .verticalScroll(rememberScrollState())
+                .padding(bottom = buttonHeight.value.dp)
+                .align(Alignment.TopCenter),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
@@ -93,7 +97,15 @@ fun AboutAppScreen(modifier: Modifier = Modifier) {
                 textAlign = TextAlign.Center
             )
             Text(
-                text = "Copyright © $currentYear Dylan R. Farstveet\nAll rights reserved\n\nMy Little Pony and all related characters are trademarks of Hasbro, Inc. This app is a non-commercial project created under the principles of fair use and is not affiliated with or endorsed by Hasbro.",
+                text = "Copyright © $currentYear Dylan R. Farstveet\nAll rights reserved",
+                fontSize = 16.sp,
+                textAlign = TextAlign.Center
+            )
+            Spacer(modifier = Modifier.height(1.dp))
+            Text(
+                text = "My Little Pony and all related characters are trademarks of Hasbro, Inc. " +
+                        "This app is a non-commercial project created under the principles of fair use " +
+                        "and is not affiliated with or endorsed by Hasbro.",
                 fontSize = 16.sp,
                 textAlign = TextAlign.Center
             )
@@ -108,9 +120,12 @@ fun AboutAppScreen(modifier: Modifier = Modifier) {
             },
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .padding(bottom = 0.dp)
                 .fillMaxWidth()
                 .height(60.dp)
+                .padding(bottom = 0.dp)
+                .onGloballyPositioned { coordinates ->
+                    buttonHeight.value = coordinates.size.height / density.density
+                }
         ) {
             Text("App Info", fontSize = 18.sp)
         }
