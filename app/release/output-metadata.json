@@ -4,14 +4,14 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.farstveet.dylansapp",
+  "applicationId": "com.dylanfarstveet.dylansapp",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 7,
+      "versionCode": 8,
       "versionName": "1.1.4",
       "outputFile": "app-release.apk"
     }
