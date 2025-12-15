@@ -3,7 +3,7 @@
  * All rights reserved
  */
 
-package com.farstveet.dylan
+package com.dylanfarstveet.dylan
 
 import org.junit.Test
 

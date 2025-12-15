@@ -3,7 +3,7 @@
  * All rights reserved
  */
 
-package com.farstveet.dylansapp.ui.theme
+package com.dylanfarstveet.dylansapp.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

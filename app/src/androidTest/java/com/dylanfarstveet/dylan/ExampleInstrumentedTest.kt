@@ -3,7 +3,7 @@
  * All rights reserved
  */
 
-package com.farstveet.dylan
+package com.dylanfarstveet.dylan
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -3,7 +3,7 @@
  * All rights reserved
  */
 
-package com.farstveet.dylansapp.ui.theme
+package com.dylanfarstveet.dylansapp.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

@@ -10,14 +10,14 @@ plugins {
 }
 
 android {
-    namespace = "com.farstveet.dylansapp"
+    namespace = "com.dylanfarstveet.dylansapp"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.farstveet.dylansapp"
+        applicationId = "com.dylanfarstveet.dylansapp"
         minSdk = 24
         targetSdk = 36
-        versionCode = 7
+        versionCode = 8
         versionName = "1.1.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

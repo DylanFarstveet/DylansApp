@@ -3,7 +3,7 @@
  * All rights reserved
  */
 
-package com.farstveet.dylansapp
+package com.dylanfarstveet.dylansapp
 
 import android.content.Intent
 import android.net.Uri
@@ -30,7 +30,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.farstveet.dylansapp.ui.theme.DylansAppTheme
+import com.dylanfarstveet.dylansapp.ui.theme.DylansAppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 class AboutActivity : ComponentActivity() {

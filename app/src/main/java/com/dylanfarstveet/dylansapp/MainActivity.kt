@@ -3,7 +3,7 @@
  * All rights reserved
  */
 
-package com.farstveet.dylansapp
+package com.dylanfarstveet.dylansapp
 
 import android.os.Bundle
 import android.content.Intent
@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
-import com.farstveet.dylansapp.ui.theme.DylansAppTheme
+import com.dylanfarstveet.dylansapp.ui.theme.DylansAppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
