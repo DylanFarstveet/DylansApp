@@ -6,7 +6,7 @@
 package com.dylanfarstveet.dylansapp
 
 import android.content.Intent
-import android.net.Uri
+import androidx.core.net.toUri
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
