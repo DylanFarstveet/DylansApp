@@ -8,23 +8,28 @@ package com.dylanfarstveet.dylansapp
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.TextPaint
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
+import android.view.View
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
 import com.dylanfarstveet.dylansapp.ui.theme.DylansAppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,8 +52,8 @@ class DylanActivity : ComponentActivity() {
                             },
                             colors = TopAppBarDefaults.topAppBarColors(
                                 containerColor = MaterialTheme.colorScheme.primary,
-                                titleContentColor = MaterialTheme.colorScheme.onPrimary
-                                , navigationIconContentColor = MaterialTheme.colorScheme.onPrimary
+                                titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                                navigationIconContentColor = MaterialTheme.colorScheme.onPrimary
                             )
                         )
                     }
@@ -97,14 +102,33 @@ fun LabeledLink(label: String, linkText: String, url: String) {
     Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
         Text(text = label)
 
-        Text(
-            text = linkText,
-            color = Color(0xFF0000EE),
-            textDecoration = TextDecoration.Underline,
-            modifier = Modifier.clickable {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                context.startActivity(intent)
+        AndroidView(
+            factory = {
+                TextView(it).apply {
+                    val spannable = SpannableString(linkText)
+                    spannable.setSpan(
+                        object : ClickableSpan() {
+                            override fun onClick(widget: View) {
+                                context.startActivity(
+                                    Intent(Intent.ACTION_VIEW, url.toUri())
+                                )
+                            }
+
+                            override fun updateDrawState(ds: TextPaint) {
+                                ds.isUnderlineText = true
+                                ds.color = 0xFF0000EE.toInt()
+                            }
+                        },
+                        0,
+                        linkText.length,
+                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                    text = spannable
+                    movementMethod = LinkMovementMethod.getInstance()
+                    highlightColor = android.graphics.Color.TRANSPARENT
+                }
             }
         )
     }
 }
+

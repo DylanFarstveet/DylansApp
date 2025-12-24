@@ -8,10 +8,16 @@ package com.dylanfarstveet.dylansapp
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.TextPaint
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
+import android.view.View
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.browser.customtabs.CustomTabsIntent
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -20,12 +26,11 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
 import com.dylanfarstveet.dylansapp.ui.theme.DylansAppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -48,8 +53,8 @@ class PoniesActivity : ComponentActivity() {
                             },
                             colors = TopAppBarDefaults.topAppBarColors(
                                 containerColor = MaterialTheme.colorScheme.primary,
-                                titleContentColor = MaterialTheme.colorScheme.onPrimary
-                                , navigationIconContentColor = MaterialTheme.colorScheme.onPrimary
+                                titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                                navigationIconContentColor = MaterialTheme.colorScheme.onPrimary
                             )
                         )
                     }
@@ -86,12 +91,31 @@ fun PonyCard(name: String, link: String) {
     val context = LocalContext.current
     Column {
         Text(text = name, style = MaterialTheme.typography.titleLarge, modifier = Modifier.semantics { heading() })
-        Text(
-            text = "Learn more here",
-            color = Color(0xFF0000EE),
-            textDecoration = TextDecoration.Underline,
-            modifier = Modifier.clickable {
-                openInCustomTab(context, link)
+
+        AndroidView(
+            factory = {
+                TextView(it).apply {
+                    val text = "Learn more here"
+                    val spannable = SpannableString(text)
+                    spannable.setSpan(
+                        object : ClickableSpan() {
+                            override fun onClick(widget: View) {
+                                openInCustomTab(context, link)
+                            }
+
+                            override fun updateDrawState(ds: TextPaint) {
+                                ds.isUnderlineText = true
+                                ds.color = 0xFF0000EE.toInt()
+                            }
+                        },
+                        0,
+                        text.length,
+                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                    setText(spannable, TextView.BufferType.SPANNABLE)
+                    movementMethod = LinkMovementMethod.getInstance()
+                    highlightColor = android.graphics.Color.TRANSPARENT
+                }
             }
         )
     }
