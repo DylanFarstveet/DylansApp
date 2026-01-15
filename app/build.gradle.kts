@@ -17,8 +17,8 @@ android {
         applicationId = "com.dylanfarstveet.dylansapp"
         minSdk = 24
         targetSdk = 36
-        versionCode = 9
-        versionName = "1.1.5"
+        versionCode = 10
+        versionName = "1.1.6"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -35,6 +35,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         compileOptions {
@@ -73,4 +74,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.androidx.browser)
+
+    coreLibraryDesugaring(libs.desugarJdkLibs)
 }

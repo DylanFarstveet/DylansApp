@@ -31,6 +31,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dylanfarstveet.dylansapp.ui.theme.DylansAppTheme
+import java.time.LocalDate
 
 @OptIn(ExperimentalMaterial3Api::class)
 class AboutActivity : ComponentActivity() {
@@ -52,8 +53,8 @@ class AboutActivity : ComponentActivity() {
                             },
                             colors = TopAppBarDefaults.topAppBarColors(
                                 containerColor = MaterialTheme.colorScheme.primary,
-                                titleContentColor = MaterialTheme.colorScheme.onPrimary
-                                , navigationIconContentColor = MaterialTheme.colorScheme.onPrimary
+                                titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                                navigationIconContentColor = MaterialTheme.colorScheme.onPrimary
                             )
                         )
                     }
@@ -71,8 +72,8 @@ fun AboutAppScreen(modifier: Modifier = Modifier) {
     val versionName = remember {
         context.packageManager.getPackageInfo(context.packageName, 0).versionName
     }
-    val currentYear = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR)
-    val buttonHeight = remember { mutableStateOf(0f) }
+    val currentYear = LocalDate.now().year
+    val buttonHeight = remember { mutableFloatStateOf(0f) }
     val density = LocalDensity.current
 
     Box(
@@ -83,7 +84,7 @@ fun AboutAppScreen(modifier: Modifier = Modifier) {
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
-                .padding(bottom = buttonHeight.value.dp)
+                .padding(bottom = buttonHeight.floatValue.dp)
                 .align(Alignment.TopCenter),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -135,7 +136,7 @@ fun AboutAppScreen(modifier: Modifier = Modifier) {
                 .height(60.dp)
                 .padding(bottom = 0.dp)
                 .onGloballyPositioned { coordinates ->
-                    buttonHeight.value = coordinates.size.height / density.density
+                    buttonHeight.floatValue = coordinates.size.height / density.density
                 }
         ) {
             Text("App Info", fontSize = 18.sp)

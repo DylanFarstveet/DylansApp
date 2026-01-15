@@ -31,6 +31,8 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.dylanfarstveet.dylansapp.ui.theme.DylansAppTheme
+import java.time.LocalDate
+import java.time.Period
 
 @OptIn(ExperimentalMaterial3Api::class)
 class DylanActivity : ComponentActivity() {
@@ -65,6 +67,12 @@ class DylanActivity : ComponentActivity() {
     }
 }
 
+private fun getCurrentAge(): Int {
+    val birthDate = LocalDate.of(2001, 1, 14)
+    val today = LocalDate.now()
+    return Period.between(birthDate, today).years
+}
+
 @Composable
 fun AboutMeScreen(modifier: Modifier = Modifier) {
     val scrollState = rememberScrollState()
@@ -77,7 +85,7 @@ fun AboutMeScreen(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text("About Dylan", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.semantics { heading() })
-        Text("Hey there! I'm Dylan, a 24-year-old who loves My Little Pony, music, and video games. I work at Target and enjoy creating music in my free time.")
+        Text("Hey there! I'm Dylan, a ${getCurrentAge()}-year-old who loves My Little Pony, music, and video games. I work at Target and enjoy creating music in my free time.")
 
         Text("Socials", style = MaterialTheme.typography.titleMedium, modifier = Modifier.semantics { heading() })
         LabeledLink("Twitter:", "@DFarstveet", "https://twitter.com/DFarstveet")
@@ -131,4 +139,3 @@ fun LabeledLink(label: String, linkText: String, url: String) {
         )
     }
 }
-
