@@ -85,7 +85,7 @@ fun AboutMeScreen(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text("About Dylan", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.semantics { heading() })
-        Text("Hey there! I'm Dylan, a ${getCurrentAge()}-year-old who loves My Little Pony, music, and video games. I work at Target and enjoy creating music in my free time.")
+        Text("Hey there! I'm Dylan, a ${getCurrentAge()}-year-old who loves My Little Pony, music, and video games. I enjoy creating music in my free time.")
 
         Text("Socials", style = MaterialTheme.typography.titleMedium, modifier = Modifier.semantics { heading() })
         LabeledLink("Twitter:", "@DFarstveet", "https://twitter.com/DFarstveet")
@@ -94,7 +94,7 @@ fun AboutMeScreen(modifier: Modifier = Modifier) {
         LabeledLink("Email:", "dylanfarstveet512@gmail.com", "mailto:dylanfarstveet512@gmail.com")
 
         Text("Work", style = MaterialTheme.typography.titleMedium, modifier = Modifier.semantics { heading() })
-        Text("I currently work at Target and previously worked at Walmart. I have experience in retail and customer service.")
+        Text("I have several years of experience in retail, having previously worked at both Target and Walmart. During my time at these companies, I gained valuable retail experience.")
 
         Text("Contact", style = MaterialTheme.typography.titleMedium, modifier = Modifier.semantics { heading() })
         Text("Feel free to reach out to me through my Discord or email.")
